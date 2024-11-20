@@ -10,21 +10,23 @@
         {% endfor %}
     {% endif %}
     <div class="adicionar">
-        <a href="/alunos/add">Adicionar</a>
+        <a href="/clubes/add">Adicionar</a>
     </div>
     <table>
         <tr>
             <th>Nome</th>
-            <th>Matrícula</th>
+            <th>Tipo</th>
+            <th>Aluno</th>
             <th>Editar</th>
             <th>Remover</th>
         </tr>
-        {% for a in alunos %}
+        {% for c in clubes %}
         <tr>
-            <td>{{a.nome}}</td>
-            <td>{{a.matricula}}</td>
-            <td><a href="/alunos/edit/{{a.id_aluno}}">[E]</a></td>
-            <td><a href="/alunos/remove/{{a.id_aluno}}">[X]</a></td>
+            <td>{{c.nome}}</td>
+            <td>{{c.tipo}}</td>
+            <td>{{c.aluno.nome}}</td>
+            <td><a href="/clubes/edit/{{c.id_clube}}">[E]</a></td>
+            <td><a href="/clubes/remove/{{c.id_clube}}">[X]</a></td>
         </tr>
         {% endfor %}
     </table>

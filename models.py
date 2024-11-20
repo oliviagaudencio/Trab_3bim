@@ -11,7 +11,7 @@ class Aluno(db.Model):
         self.matricula = matricula
     
     def __repr__(self):
-        return "<Aluno {self.nome}>".f
+        return f"<Aluno {self.nome}>"
     
 
 class Clube(db.Model):
@@ -19,14 +19,14 @@ class Clube(db.Model):
     id_clube = db.Column(db.Integer, primary_key = True)
     nome = db.Column(db.String(100))
     tipo = db.Column(db.String(50))
-    id_aluno = db.Column(db.Integer, db.ForeignKey('alunos.id')
+    id_aluno = db.Column(db.Integer, db.ForeignKey('alunos.id_aluno'))
 
-    aluno = db.relationship('Aluno', foreign_keys=alunos_id)
+    aluno = db.relationship('Aluno', foreign_keys=id_aluno)
 
-    def __init__(self, nome, tipo, alunos_id):
+    def __init__(self, nome, tipo, id_aluno):
         self.nome = nome
         self.tipo = tipo
-        self.alunos_id = alunos_id
+        self.id_aluno = id_aluno
     
     def __repr__(self):
-        return "<Cadastro: {self.nome} - {self.tipo} - {self.alunos_id}> ".f
+        return f"<Cadastro: {self.nome} - {self.tipo} - {self.id_aluno}> "

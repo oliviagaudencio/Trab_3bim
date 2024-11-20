@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    {% set mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+        {% for msg in mensagens %}
+        <div>
+            {{msg}}
+        </div>
+        {% endfor %}
+    {% endif %}
+    <form action="/clubes/edit-save" method="post">
+        <div>
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome">
+        </div>
+        <div>
+            <label for="tipo">Tipo: </label>
+            <input type="text" name="tipo" id="tipo">
+        </div>
+        <div>
+            <label for="aluno">Aluno: </label>
+            <select name="id_aluno" id="aluno">
+                <option value=""></option>
+                {% for a in alunos %}
+                <option value="{{a.id_aluno}}">{{a.nome}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <input type="hidden" name="id_clube" id="id_clube" value="{{clubes.id_clube}}">
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}
