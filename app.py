@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, flash, redirect, Blueprint
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'senha'
-conexao = "mysql+pymysql://alvaros@localhost:1406@127.0.0.1/trab"
+conexao = "mysql+pymysql://alunos:cefetmg@127.0.0.1/trab"
 app.config['SQLALCHEMY_DATABASE_URI'] = conexao
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 from database import db
